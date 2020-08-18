@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Canvas</title>
+	<style type="text/css">
+		.content{
+			width: 80%;
+			min-height: 600px;
+			background-color: gray;
+			margin: auto;
+		}
+		canvas{
+			background-color: white;
+			margin:auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="content">
+		<canvas id="canvas" width="1150" height="600" ></canvas>
+	</div>
+	<script type="text/javascript">
+		var canvas = document.getElementById('canvas');
+		var booleana = false;
+		var booleana2 = true;
+		if( canvas.getContext )
+		{
+			var ctx = canvas.getContext('2d');
+
+			ctx.font = "30px Arial";
+			ctx.strokeStyle = "#000000";
+			ctx.fillText("Click para activar/desactivar pincel",10,100);
+
+			canvas.addEventListener("click", function(evt){
+				if(booleana2){
+					ctx.fillStyle = 'rgba(10000,10000,10000,1)';
+					ctx.fillRect(0,0,1000,500);
+					booleana2=false
+				}
+				if(booleana){
+					booleana=false;
+				}else{
+					booleana=true;
+				}
+        });
+			canvas.addEventListener("mousemove", function(evt){
+				if (booleana) {
+	       ctx.fillStyle = "red";
+          ctx.beginPath();
+          ctx.arc(evt.layerX, evt.layerY, 10, 0, 2* Math.PI);
+          ctx.fill();
+      		}
+        });
+
+			if (booleana=false) {
+				//Fill Text
+	
+
+			}
+
+			//ctx.fillStyle = 'rgba(0,0,0,1)';
+			//ctx.fillRect(0,0,100,50);
+
+			//ctx.fillStyle = 'rgba(200,0,100,0.9)';
+			//ctx.fillRect(20,20,100,50);
+
+			//linea
+			//ctx.moveTo(0,0);
+			//ctx.lineTo(500,250); 
+			//ctx.stroke();
+
+			//circulo
+			//ctx.fillStyle = 'rgba(0,0,900,1)';
+			//ctx.beginPath();
+			//ctx.arc(100, 80, 60, 0, 2 * Math.PI);
+			//ctx.stroke();
+			//ctx.closePath();
+
+			//Fill Text
+			//ctx.font = "60px Arial";
+			//ctx.strokeStyle = "#000000";
+			//ctx.fillText("Hello World",130,120);
+
+			//Texto
+			//ctx.font = "60px Arial";
+			//ctx.strokeStyle = "#000000";
+			//ctx.strokeText("Hello World",130,120);
+
+			//grandiante
+			// var grd = ctx.createLinearGradient(0, 0, 200, 0);
+			// grd.addColorStop(0,"black");
+			// grd.addColorStop(1,"#FF9FE8");
+
+			// ctx.fillStyle = grd;
+			// ctx.fillRect(10,10,400,210);
+
+			//grandiante circular
+			// var grd = ctx.createRadialGradient(75, 75, 5, 130, 100, 100)
+			// grd.addColorStop(0,"red");
+			// grd.addColorStop(1,"white"); 
+
+			// ctx.fillStyle = grd;
+			// ctx.fillRect(60,30,160,100);
+
+			//imagen
+			// var img = document.getElementById('imagen');
+			 //ctx.drawImage(img,10,10);
+		}
+		
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
